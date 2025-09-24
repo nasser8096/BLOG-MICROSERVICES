@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package user;
+
+// User message
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string image = 4;
+  string instagram = 5;
+  string facebook = 6;
+  string linkedin = 7;
+  string bio = 8;
+}
+
+// Request for user profile
+message GetUserProfileRequest {
+  string id = 1;
+}
+
+// Response with user
+message GetUserProfileResponse {
+  User user = 1;
+}
+
+// Service definition
+service UserService {
+  rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse);
+}
